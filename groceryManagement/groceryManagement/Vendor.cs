@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySqlConnector;
 
 namespace groceryManagement
 {
-    public class Vendor
+    public class Vendor : SqlConnect
     {
         //Attributes
         private string name;
@@ -15,7 +16,6 @@ namespace groceryManagement
 
         private int vendorID;
 
-        
         //Constructor
         public Vendor()
         {
@@ -62,18 +62,76 @@ namespace groceryManagement
         //Set new vendor
         public void addNewVendor(string vendorName, string vendorDesc, int vendorID)
         {
+            //Gets the connection string from the abstract class
+            string connString = GetConnectionString();
 
+            //SQL command to insert
+            string query = "INSERT INTO vendor (VendorID, VendorName, VendorDesc) VALUES (@id, @name, @desc)";
+
+            //Opens sql
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+
+                //Inserts value into table
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", vendorID);
+                    cmd.Parameters.AddWithValue("@name", vendorName);
+                    cmd.Parameters.AddWithValue("@desc", vendorDesc);
+
+                    //IMPORTANT!!!
+                    //Execute the commands
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
-        //Get all vendor
-        public List<int> getAllVendor()
+        //Get all vendor ID
+        public List<int> getAllVendorID()
         {
-            return new List<int>();
+            List<int> vendorIDS = new List<int>(); //Creates a list to return
+
+            string connString = GetConnectionString(); //Gets the connection string from the abstract class
+
+            string query = "SELECT VendorID FROM vendor"; //Selects and get all VendorID
+
+            using(MySqlConnection conn = new MySqlConnection( connString)) //Create instance with connection string
+            {
+                conn.Open(); //Opens connection
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn)) //Create instance with our sql command and connection to database
+                {
+                
+                    using (MySqlDataReader reader = cmd.ExecuteReader()) //Read the executed command
+                    {
+                        try //Check if there is a vendor present
+                        {
+                            while (reader.Read()) //While the reader is reader each line
+                            {
+                                vendorIDS.Add(reader.GetInt32(0)); //Adds the vendor ID to the List
+                            }
+                        }
+                        catch (Exception ex) //If there are no vendor
+                        {
+                            Console.WriteLine("An error retrieving vendor IDs: " + ex.Message); //Log error
+
+                            return new List<int>(); //Returns empty list
+                        }
+                    }
+                }
+            }
+
+            return vendorIDS; //Returns all the vendor IDs
         }
 
         //Check specific Vendor
-        public int getVendor(int vendorID)
+        public int getVendorID(int vendorID)
         {
+            int vendorId; //Creates attribute to return
+
+            string connString = GetConnectionString(); //Gets connection string
+
             return 0;
         }
     }
