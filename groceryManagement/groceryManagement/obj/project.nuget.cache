@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "er6k/wmJ+20=",
+  "dgSpecHash": "Um6HNkW+Org=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Random-123\\OneDrive\\Work\\OwnProject\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Random-123\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\Random-123\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\Random-123\\.nuget\\packages\\mysqlconnector\\2.4.0\\mysqlconnector.2.4.0.nupkg.sha512"
+  ],
   "logs": []
 }
