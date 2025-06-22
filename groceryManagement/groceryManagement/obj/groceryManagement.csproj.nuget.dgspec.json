@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj": {}
+    "A:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj": {}
   },
   "projects": {
-    "D:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj": {
+    "A:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj",
+        "projectUniqueName": "A:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj",
         "projectName": "groceryManagement",
-        "projectPath": "D:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj",
+        "projectPath": "A:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\groceryManagement.csproj",
         "packagesPath": "C:\\Users\\Random-123\\.nuget\\packages\\",
-        "outputPath": "D:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\obj\\",
+        "outputPath": "A:\\Codes\\GIT\\Portfolio\\CP-GroceryManagement\\groceryManagement\\groceryManagement\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

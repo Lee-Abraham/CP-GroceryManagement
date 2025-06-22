@@ -126,13 +126,38 @@ namespace groceryManagement
         }
 
         //Check specific Vendor
-        public int getVendorID(int vendorID)
+        public Vendor getVendor(int vendorID)
         {
-            int vendorId; //Creates attribute to return
+
+            Vendor vendor = new Vendor(); //Creates method to return
 
             string connString = GetConnectionString(); //Gets connection string
 
-            return 0;
+            string query = $"SELECT * from VENDOR WHERE VendorID = @VendorID"; //Selects specific id
+
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@VendorID", vendorID);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read()) //Check if data exist
+                        {
+                            vendor = new Vendor()
+                            {
+                                VendorID = reader.GetInt32(0),
+                                VendorName = reader.GetString(1),
+                                VendorDescription = reader.GetString(2)
+                            };
+                        }
+                    }
+                }
+            }
+
+            return vendor;
         }
     }
 }
