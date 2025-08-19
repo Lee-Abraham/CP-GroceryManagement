@@ -14,7 +14,7 @@ namespace groceryManagement
     public abstract class SqlConnect
     {
         // Connection string should ideally be retrieved from a secure config file
-        protected readonly string connectionString = "Server=localhost;Database=grocerymanagement;User Id=root;Password=password;";
+        protected readonly string connectionString = "Server=localhost;Database=grocerymanage;User Id=root;Password=password;";
 
         //-----------------------------------------------------------------------//
         /// <summary>

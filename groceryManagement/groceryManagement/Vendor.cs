@@ -153,6 +153,10 @@ namespace groceryManagement
                                 VendorDescription = reader.GetString(2)
                             };
                         }
+                        else
+                        {
+                            return null;
+                        }
                     }
                 }
             }

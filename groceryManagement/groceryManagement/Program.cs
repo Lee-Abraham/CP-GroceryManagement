@@ -24,7 +24,8 @@ namespace groceryManagement
                 switch (userOption)
                 {
                     case Menu.Option.Purchasing:
-                        Console.WriteLine("Purchased");
+                        Purchasing purchase = new Purchasing();
+                        purchase.PurchasingM();
                         break;
                     case Menu.Option.Recieving:
                         Console.WriteLine("Recieved");
@@ -54,11 +55,15 @@ namespace groceryManagement
 
             public void DisplayMenu()
             {
-                Console.WriteLine($"\nGrocery Mangement");
+                Console.WriteLine($"\n*--------------------------------*");
+                Console.WriteLine($"Grocery Mangement");
                 Console.WriteLine($"1 - Purchasing");
                 Console.WriteLine($"2 - Recieving");
                 Console.WriteLine($"3 - Inventory");
-                Console.WriteLine($"4 - Exit");
+                Console.WriteLine($"4 - Vendor");
+                Console.WriteLine($"5 - Product");
+                Console.WriteLine($"6 - Exit");
+                Console.WriteLine($"*--------------------------------*");
                 Console.Write("Selected: ");
 
             }
@@ -66,9 +71,40 @@ namespace groceryManagement
 
         class Purchasing
         {
-            public void PurchasingMenu()
+            public void PurchasingM()
             {
-                Console.WriteLine();
+                Console.WriteLine("\nPurchasing:");
+                Console.Write("Vendor ID: ");
+
+                //Exception
+                try
+                {
+                    //Get vendor Id from user
+                    int Vinput = int.Parse(Console.ReadLine());
+                    Vendor vendor = new Vendor();
+                    if (vendor.getVendor(Vinput) != null)
+                    {
+                        //Get product using Vendor ID and Product ID
+                        Console.Write("Product ID: ");
+                        try
+                        {
+                            int Pinput = int.Parse(Console.ReadLine());
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error: {ex.Message}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Vendor not found.");
+                    }
+
+                }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
             }
         }
 
